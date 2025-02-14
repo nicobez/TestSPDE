@@ -11,7 +11,7 @@ if('gstlearn' %in% packageList){
 }
 
 # Installing (if needed) and opening required CRAN libraries
-notInList <- CRAN_package_list[!(packageList %in% installed.packages())]
+notInList <- packageList[!(packageList %in% installed.packages())]
 lapply(notInList,install.packages,dependencies=TRUE)
 lapply(packageList, require, character.only = TRUE)
 

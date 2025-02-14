@@ -12,7 +12,8 @@ testGrid['r1'] <- rep(5,10000)
 testGrid['r2'] <- rep(20,10000)
 testModel$getCova(0)$makeRangeNoStatDb("r1",0,db=testGrid)
 testModel$getCova(0)$makeRangeNoStatDb("r2",1,db=testGrid)
-spdeSimu <- simulateSPDE(NULL,testGrid,testModel,NULL,1)
+testMesh <- MeshETurbo(testGrid)
+spdeSimu <- simulateSPDE(NULL,testGrid,testModel,NULL,1,testMesh)
 plotGrid(testGrid,'SimuSPDE')
 # ==> simu semble  cohérente avec le modèle modifié par les portées issues de la grille
 # ==> l'anisotropie est bien orientée 
@@ -25,7 +26,9 @@ testGrid['r1'] <- rep(5,10000)
 testGrid['r2'] <- rep(20,10000)
 testModel$getCova(0)$makeRangeNoStatDb("r1",0,db=testGrid)
 testModel$getCova(0)$makeRangeNoStatDb("r2",1,db=testGrid)
-spdeSimu <- simulateSPDE(NULL,testGrid,testModel,NULL,1)
+testMesh <- MeshETurbo(testGrid)
+testMesh <- MeshETurbo(testGrid)
+spdeSimu <- simulateSPDE(NULL,testGrid,testModel,NULL,1,testMesh)
 plotGrid(testGrid,'SimuSPDE')
 # ==> simu n'est plus du toutr cohérente avec le modèle modifié par les portées issues de la grille
 # ==> il y a interférence entre les portées indiquées on moment de générer le modèle et celle alimentant les non stationnarités
